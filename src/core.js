@@ -29,9 +29,12 @@ export function next(state) {
 }
 
 export function vote(state, entry) {
+  console.log(entry);
   return state.updateIn(
     ['vote', 'tally', entry],    // state.vote > state.vote.tally > state.vote.tally['Human']
     0,                           // if state.vote.tally['Human'] does not exist, initialize it to 0, not set
     tally => tally + 1           // expression function, updater function
   );
 }
+
+export const INITIAL_STATE = Map();
