@@ -88,45 +88,34 @@ describe('Application logic', () => {
   describe('vote', () => {
     it('creates a tally for the voted entry', () => {
       const state = Map({
-         vote: Map({
-           pair: List.of('Human', 'Individual Thought Patterns')
-         }),
-         entries: List()
+        pair: List.of('Human', 'Individual Thought Patterns')
       });
       const nextState = vote(state, 'Human');
+      console.log(nextState);
       expect(nextState).to.equal(Map({
-        vote: Map({
-          pair: List.of('Human', 'Individual Thought Patterns'),
-          tally: Map({
-            'Human': 1
-          })
-        }),
-        entries: List()
+        pair: List.of('Human', 'Individual Thought Patterns'),
+        tally: Map({
+          'Human': 1
+        })
       }));
     });
 
     it('adds to existing tally for the voted entry', () => {
       const state = Map({
-        vote: Map({
-          pair: List.of('Human', 'Individual Thought Patterns'),
-          tally: Map({
-            'Human': 3,
-            'Individual Thought Patterns': 2
-          })
-        }),
-        entries: List()
+        pair: List.of('Human', 'Individual Thought Patterns'),
+        tally: Map({
+          'Human': 3,
+          'Individual Thought Patterns': 2
+        })
       });
       const nextState = vote(state, 'Human');
       expect(nextState).to.equal(Map({
-        vote: Map({
-          pair: List.of('Human', 'Individual Thought Patterns'),
-          tally: Map({
-            'Human': 4,
-            'Individual Thought Patterns': 2
-          })
-        }),
-        entries: List()
-      }));
+        pair: List.of('Human', 'Individual Thought Patterns'),
+        tally: Map({
+          'Human': 4,
+          'Individual Thought Patterns': 2
+        })
+       }));
      });
   });
 
