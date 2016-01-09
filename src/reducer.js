@@ -7,6 +7,7 @@ export default function reducer(state = INITIAL_STATE, action) {
     case 'NEXT':
       return next(state, action.entry);
     case 'VOTE':
+      console.log('inside server reducer');
       return state.update('vote', voteState => vote(voteState, action.entry));
   }
   return state;

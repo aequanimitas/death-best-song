@@ -29,6 +29,8 @@ export function next(state) {
 }
 
 export function vote(voteState, entry) {
+  console.log(voteState);
+  console.log(entry);
   return voteState.updateIn(
     ['tally', entry],    // state.vote > state.vote.tally > state.vote.tally['Human']
     0,                           // if state.vote.tally['Human'] does not exist, initialize it to 0, not set
